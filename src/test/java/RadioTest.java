@@ -3,10 +3,48 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
     @Test
-    public void NextCurrentChannelTest() {
+    public void NextCurrentChannelIfFinalTest() {
         Radio Radio = new Radio();
         Radio.setCurrentChannel(9);
         Radio.nextChannel();
+        int expected = 0;
+        int actual = Radio.getCurrentChannel();
+        Assertions.assertEquals(expected, actual);
+
+    }
+    @Test
+    public void NextCurrentChannelTest() {
+        Radio Radio = new Radio();
+        Radio.setCurrentChannel(4);
+        Radio.nextChannel();
+        int expected = 5;
+        int actual = Radio.getCurrentChannel();
+        Assertions.assertEquals(expected, actual);
+
+    }
+    @Test
+    public void NextCurrentChannelIfZeroTest() {
+        Radio Radio = new Radio();
+        Radio.setCurrentChannel(0);
+        Radio.nextChannel();
+        int expected = 1;
+        int actual = Radio.getCurrentChannel();
+        Assertions.assertEquals(expected, actual);
+
+    }
+    @Test
+    public void SetCurrentChannelTest() {
+        Radio Radio = new Radio();
+        Radio.setCurrentChannel(2);
+        int expected = 2;
+        int actual = Radio.getCurrentChannel();
+        Assertions.assertEquals(expected, actual);
+
+    }
+    @Test
+    public void SetCurrentChannelIfWrongTest() {
+        Radio Radio = new Radio();
+        Radio.setCurrentChannel(-1);
         int expected = 0;
         int actual = Radio.getCurrentChannel();
         Assertions.assertEquals(expected, actual);
@@ -60,6 +98,26 @@ public class RadioTest {
         Radio.setVolume(100);
         Radio.setDecreaseVolume();
         int expected = 99;
+        int actual = Radio.getVolume();
+        Assertions.assertEquals(expected, actual);
+
+
+    }
+    @Test
+    public void SetVolumeTest() {
+        Radio Radio = new Radio();
+        Radio.setVolume(100);
+        int expected = 100;
+        int actual = Radio.getVolume();
+        Assertions.assertEquals(expected, actual);
+
+
+    }
+    @Test
+    public void SetVolumeIfWrongTest() {
+        Radio Radio = new Radio();
+        Radio.setVolume(-1);
+        int expected = 0;
         int actual = Radio.getVolume();
         Assertions.assertEquals(expected, actual);
 
