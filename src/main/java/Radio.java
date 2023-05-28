@@ -3,21 +3,18 @@ public class Radio {
     private int volume;
     private int maxCurrentChannel = 9;
     private final int minCurrentChannel = 0;
-    private int excessCurrentChannel = 10;
     private final int minVolume = 0;
+    private int excessCurrentChannel;
     private final int maxVolume = 100;
     private final int autoVolume = minVolume;
 
     public Radio(int excessCurrentChannel) {
-        if (excessCurrentChannel > minCurrentChannel) {
-            return;
-        } else {
-            this.excessCurrentChannel = excessCurrentChannel;
-        }
-        this.maxCurrentChannel = excessCurrentChannel;
+        this.excessCurrentChannel = excessCurrentChannel;
+        this.maxCurrentChannel = 9;
     }
 
     public Radio() {
+        excessCurrentChannel = 10;
 
     }
 
