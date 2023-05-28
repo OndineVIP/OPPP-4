@@ -1,66 +1,84 @@
 public class Radio {
-    private int CurrentChannel;
-    private int Volume;
+    private int currentChannel;
+    private int volume;
+    private int maxCurrentChannel = 9;
+    private final int minCurrentChannel = 0;
+    private final int minVolume = 0;
+    private int excessCurrentChannel;
+    private final int maxVolume = 100;
+    private final int autoVolume = minVolume;
+
+    public Radio(int excessCurrentChannel) {
+        this.excessCurrentChannel = excessCurrentChannel;
+        this.maxCurrentChannel = 9;
+    }
+
+    public Radio() {
+        excessCurrentChannel = 10;
+
+    }
+
 
     public int getCurrentChannel() {
-        return CurrentChannel;
+        return currentChannel;
 
     }
 
     public int getVolume() {
-        return Volume;
+        return volume;
+
     }
 
     public void setCurrentChannel(int newCurrentChannel) {
-        if (newCurrentChannel > 9) {
+        if (newCurrentChannel < minCurrentChannel) {
             return;
         }
-        if (newCurrentChannel < 0) {
+        if (newCurrentChannel > maxCurrentChannel) {
             return;
         }
-        CurrentChannel = newCurrentChannel;
+        currentChannel = newCurrentChannel;
     }
 
     public void nextChannel() {
-        if (CurrentChannel == 9) {
-            setCurrentChannel(0);
-        } else {
-            CurrentChannel++;
-
+        if (currentChannel != maxCurrentChannel) {
+            currentChannel++;
+            return;
         }
+        currentChannel = 0;
 
     }
 
     public void prevChannel() {
 
-        if (CurrentChannel == 0) {
-            setCurrentChannel(9);
+        if (currentChannel == minCurrentChannel) {
+            setCurrentChannel(maxCurrentChannel);
 
         } else {
-            CurrentChannel--;
+            currentChannel--;
 
         }
     }
 
     public void setVolume(int newVolume) {
-        if (newVolume > 100) {
+        int maxVolume = 100;
+        if (newVolume > maxVolume) {
             return;
         }
-        if (newVolume < 0) {
+        if (newVolume < minVolume) {
             return;
         }
-        Volume = newVolume;
+        volume = newVolume;
 
     }
 
     public void setIncreaseVolume() {
-        int target = Volume + 1;
+        int target = volume + 1;
         setVolume(target);
     }
 
 
     public void setDecreaseVolume() {
-        int target = Volume - 1;
+        int target = volume - 1;
         setVolume(target);
     }
 }

@@ -12,6 +12,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void NextCurrentChannelTest() {
         Radio Radio = new Radio();
@@ -22,6 +23,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void NextCurrentChannelIfZeroTest() {
         Radio Radio = new Radio();
@@ -32,6 +34,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void SetCurrentChannelTest() {
         Radio Radio = new Radio();
@@ -41,6 +44,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void SetCurrentChannelIfWrongTest() {
         Radio Radio = new Radio();
@@ -50,6 +54,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void SetNewChannelTestWrong() {
         Radio Radio = new Radio();
@@ -59,6 +64,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void PrevChannelTest() {
         Radio Radio = new Radio();
@@ -70,6 +76,7 @@ public class RadioTest {
 
 
     }
+
     @Test
     public void PrevAfterMinChannelTest() {
         Radio Radio = new Radio();
@@ -81,6 +88,7 @@ public class RadioTest {
 
 
     }
+
     @Test
     public void PrevChannelNullTest() {
         Radio Radio = new Radio();
@@ -92,6 +100,7 @@ public class RadioTest {
 
 
     }
+
     @Test
     public void PrevVolumeTest() {
         Radio Radio = new Radio();
@@ -103,6 +112,7 @@ public class RadioTest {
 
 
     }
+
     @Test
     public void SetVolumeTest() {
         Radio Radio = new Radio();
@@ -113,6 +123,7 @@ public class RadioTest {
 
 
     }
+
     @Test
     public void SetVolumeIfWrongTest() {
         Radio Radio = new Radio();
@@ -123,6 +134,7 @@ public class RadioTest {
 
 
     }
+
     @Test
 
     public void IncreaseVolumeTest() {
@@ -134,6 +146,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void IncreaseOverMaxVolumeTest() {
         Radio Radio = new Radio();
@@ -144,6 +157,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
 
     public void DecreaseVolumeTest() {
@@ -160,13 +174,12 @@ public class RadioTest {
 
     public void LowAfterMinVolumeTest() {
         Radio Radio = new Radio();
-        Radio.setVolume(1);
+        Radio.setVolume(0);
         Radio.setDecreaseVolume();
         int expected = 0;
         int actual = Radio.getVolume();
         Assertions.assertEquals(expected, actual);
     }
-
 
 
 }
